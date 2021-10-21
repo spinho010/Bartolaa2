@@ -84,13 +84,15 @@
     <main>
         {% for ListLista in object_list %}
         <h2 style="font-weight: bold; display: inline-block; font-size: 40px;">{{ ListLista.nome_produto }}</h2><br>
+        <hr>
             <strong>
                 Nome: {{ ListLista.nome_produto }} <br>
                 Descrição: {{ ListLista.descricao_produto }} <br>
                 Marca: {{ ListLista.marca_produto }} <br>
                 Custo: {{ ListLista.custo_produto }} <br>
                 Preço: {{ ListLista.preço_produto }} <br>
-        <hr><hr>
+            <hr color="black">
+            <hr color="black">
         {% empty %}
             Nenhum Produto encontrado!
         {% endfor %}
