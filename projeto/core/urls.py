@@ -8,6 +8,6 @@ app_name = 'core'
 
 urlpatterns = [
     path('', v.index, name='index'),
-    path('lista-produtos/', ListLista.as_view(), name='listlista'),
-    path('add-produtos/', CreateLista.as_view(), name='createlista'),
+    #path('lista-produtos/', ListLista.as_view(), name='listlista'),
+    #path('add-produtos/', CreateLista.as_view(), name='createlista'),
 ]
