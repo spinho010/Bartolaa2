@@ -8,13 +8,13 @@
     <p>Auto Peças</p>
     <p>
       Programa de Controle e Gerenciamento de Vendas e Estoque! <br> <hr>
-      <a href="#"> <!-- {% url 'estoque:estoque_saida_list' %} -->
+      <a href="{% url 'estoque:estoque_saida_list' %}">
         <button type="button" class="btn btn-success"><strong>Vender</strong></button>
       </a>
-      <a href="#"> <!-- {% url 'estoque:estoque_entrada_list' %} -->
+      <a href="{% url 'estoque:estoque_entrada_list' %}"> 
         <button type="button" class="btn btn-primary"><strong>Reabastecer</strong></button>
       </a>
-      <a href="#"> <!-- {% url 'estoque:estoque_entrada_list' %} -->
+      <a href="{% url 'produto:produto_list' %}">
         <button type="button" class="btn btn-danger"><strong>Lista de Produtos</strong></button>
       </a>
     </p>
