@@ -4,11 +4,10 @@
 
 <div class="jumbotron">
   <div class="container">
-    <h1>Bem-vindo {{ user }}</h1>
-    <p>Eltec Celulares</p>
+    <h1>Bem-vindo!</h1>
+    <p>Auto Peças</p>
     <p>
-      Programa de Controle e Gerenciamento de Vendas e Estoque <br>
-      E ordem de procedência de trabalho! <br> <hr>
+      Programa de Controle e Gerenciamento de Vendas e Estoque! <br> <hr>
       <a href="{% url 'estoque:estoque_saida_list' %}">
         <button type="button" class="btn btn-success"><strong>Vender</strong></button>
       </a>
@@ -17,12 +16,6 @@
       </a>
       <a href="{% url 'produto:produto_list' %}">
         <button type="button" class="btn btn-danger"><strong>Lista de Produtos</strong></button>
-      </a>
-      <a href="#">
-        <button type="button" class="btn btn-primary"><strong>Consertos</strong></button>
-      </a>
-      <a href="/admin">
-        <button type="button" class="btn btn-success"><strong>Administração</strong></button>
       </a>
     </p>
   </div>
