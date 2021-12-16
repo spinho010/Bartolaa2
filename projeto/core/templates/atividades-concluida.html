@@ -3,9 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Serviços Concluidos</title>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <!-- Font-awesome -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+        <!-- Select2 -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+            <a class="navbar-brand" href="/">Eltec Celulares</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        
+            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'core:index' %}">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Produtos</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown01">
+                            <a class="dropdown-item" href="{% url 'produto:produto_list' %}">Produtos</a> <!-- {% url 'produto:produto_list' %} -->
+                            <!--<a class="dropdown-item" href="{% url 'produto:import_csv' %}">Importar CSV</a>
+                            <a class="dropdown-item" href="{% url 'produto:export_csv' %}">Exportar CSV</a>
+                            <a class="dropdown-item" href="{% url 'produto:import_xlsx' %}">Importar XLSX</a>
+                            <a class="dropdown-item" href="{% url 'produto:export_xlsx' %}">Exportar XLSX</a>
+                            <a class="dropdown-item" href="{% url 'produto:import_csv_with_pandas' %}">Importar CSV com Pandas</a> -->
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Estoque</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown02">
+                            <a class="dropdown-item" href="{% url 'estoque:estoque_entrada_list' %}">Reabastecer</a> <!-- {% url 'estoque:estoque_entrada_list' %} -->
+                            <a class="dropdown-item" href="{% url 'estoque:estoque_saida_list' %}">Vender</a> <!-- {% url 'estoque:estoque_saida_list' %} -->
+                        </div>
+                    </li>
+                    <!-- <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Protocolo de Entrega</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown03">
+                            <a class="dropdown-item" href="{% url 'estoque:protocolo_de_entrega_list' %}">Entrega</a>
+                        </div>
+                    </li> -->
+                </ul>
+                {% if user.is_authenticated %}
+                  <ul class="navbar-nav px-3">
+                    <li class="nav-item text-nowrap">
+                      <a href="{% url 'logout' %}" class="nav-link">Sair</a>
+                    </li>
+                  </ul>
+                {% endif %}
+            </div>
+        </nav>
 </head>
 <body>
-    
+    <br><br><br><br>
+    <style>
+        body{
+            background-color: rgb(60, 117, 202);
+        }
+        .novo-botao{
+            background-color: white;
+            width: 710px;
+            height: 400px;
+            margin: auto;
+            padding: 13px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 5px;
+            border-radius: 15px;
+            text-align: center;
+            cursor: pointer;
+            color: black;
+            transition: all 1s;
+            margin-left: 60px;
+            margin-right: 30px
+        }
+            .novo-botao:hover{
+            transform: scale(1.1);
+            color: rgb(16, 159, 216);
+            border-radius: 20px;
+            box-shadow: 3px 3px 6px rgb(104, 104, 104);
+            border-color: rgb(6, 169, 245);
+        }
+    </style>
+        {% for AttConcluida in object_list %}
+            <button class="novo-botao">
+                <h3 style="font-weight: bold; text-align: left;">Dono: {{ AttConcluida.dono_aparelho }}</h3> <br>
+                <hr>
+                <h3 style="font-weight: bold; text-align: left;">Modelo: {{ AttConcluida.modelo }}</h3> <br>
+                <h3 style="font-weight: bold; text-align: left;">Serviço: {{ AttConcluida.concerto }}</h3> <br>
+                <h3 style="font-weight: bold; text-align: left;">Valor: {{ AttConcluida.valor }}</h3> <br>
+                <h3 style="font-weight: bold; text-align: left;">Data entregue: {{ AttConcluida.data_da_manutencao }}</h3> <br>
+            </button>
+            <hr>
+        {% endfor %}
+
+<br><br><br>
+
+<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Select2 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 </body>
 </html>
