@@ -21,6 +21,9 @@ class MetodoPag(models.Model):
     mpagamento = models.CharField(verbose_name='Metodo de Pagamento:', max_length=60, blank=True)
     descric = models.CharField(verbose_name='Descrição:', max_length=60, blank=True)
 
+    def __str__(self):
+        return "{}".format(self.mpagamento)
+
 
 class Conclu_Serviço(models.Model):
     serviço_concluido = models.CharField(verbose_name='Serviço Concluido?: ', max_length=60, blank=True)
