@@ -35,3 +35,5 @@ class CreateConclu(CreateView):
     fields = ['dono_aparelho', 'modelo', 'concerto', 'valor', 'data_da_manutencao']
     template_name = 'attconcluidis.html'
     success_url = ('/')
+
+
