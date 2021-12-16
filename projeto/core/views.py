@@ -28,3 +28,10 @@ class TempAtividadeCon(ListView):
 class NF_Fiscaal(ListView):
     model = NotaFiscal
     template_name = 'nf-fiscal.html'
+
+
+class CreateConclu(CreateView):
+    model = AttConcluida
+    fields = ['dono_aparelho', 'modelo', 'concerto', 'valor', 'data_da_manutencao']
+    template_name = 'attconcluidis.html'
+    success_url = ('/')
