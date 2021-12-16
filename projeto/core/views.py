@@ -32,10 +32,6 @@ class TempAtividadeCon(ListView):
     template_name = 'atividades-concluida.html'
 
 
-class NF_Fiscaal(ListView):
-    model = NotaFiscal
-    template_name = 'nf-fiscal.html'
-
 
 class CreateConclu(CreateView):
     model = AttConcluida
