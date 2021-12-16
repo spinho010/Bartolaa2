@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth import admin as auth_admin
-from .models import AttConcluida, AttPendete, MetodoPag, NotaFiscal
+from .models import AttConcluida, AttPendete, MetodoPag, NotaFiscal, Conclu_Serviço
 # Register your models here.
 
 
@@ -26,3 +26,9 @@ class AdminMPag(admin.ModelAdmin):
         list_display = ('mpagamento', 'descric')
 
 admin.site.register(MetodoPag, AdminMPag)
+
+
+class AdminSConclu(admin.ModelAdmin):
+        list_display = ('serviço_concluido', 'descric')
+
+admin.site.register(Conclu_Serviço, AdminSConclu)

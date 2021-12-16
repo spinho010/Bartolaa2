@@ -20,6 +20,13 @@ class TempAtividadePen(ListView):
     template_name = 'atividades-pendente.html'
 
 
+class AtividadeDelete(UpdateView):
+    model = AttPendete
+    fields = ['data_entrega_aparelho', 'finalizado']
+    template_name = 'attpendente-delete.html'
+    success_url = ('/')
+
+
 class TempAtividadeCon(ListView):
     model = AttConcluida
     template_name = 'atividades-concluida.html'
@@ -35,5 +42,14 @@ class CreateConclu(CreateView):
     fields = ['dono_aparelho', 'modelo', 'concerto', 'valor', 'data_da_manutencao']
     template_name = 'attconcluidis.html'
     success_url = ('/')
+
+
+class CreatePende(CreateView):
+    model = AttPendete
+    fields = ['dono', 'modelo_aparelho', 'concerto_aparelho', 'valor_aparelho', 'data_entrega_aparelho']
+    template_name = 'attconcluidis.html'
+    success_url = ('/')
+
+
 
 

@@ -68,7 +68,7 @@
         main{
             background-color: white;
             width: auto;
-            height: 420px;
+            height: 500px;
             font-family: Arial, Helvetica, sans-serif;
             font-size: 5px;
             border-radius: 15px;
@@ -85,16 +85,23 @@
         {% for AttPendete in object_list %}
         <main>
             <h3 style="font-weight: bold; text-align: left;">Dono: {{ AttPendete.dono }}</h3> <br>
+            <h3 style="font-weight: bold; text-align: left;">Finalizado?: {{ AttPendete.finalizado }}</h3>
             <hr>
             <h3 style="font-weight: bold; text-align: left;">Modelo: {{ AttPendete.modelo_aparelho }}</h3> <br>
             <h3 style="font-weight: bold; text-align: left;">Serviço: {{ AttPendete.concerto_aparelho }}</h3> <br>
             <h3 style="font-weight: bold; text-align: left;">Valor: {{ AttPendete.valor_aparelho }}</h3> <br>
             <h3 style="font-weight: bold; text-align: left;">Entregar até: {{ AttPendete.data_entrega_aparelho }}</h3> <br>
-            <a href="#">
+            <a href="{% url 'core:delete-atividade' AttPendete.id %}">
                 <button type="button" class="btn btn-success" >Finalizar</button>
             </a>
             <hr>
         </main>
+        {% empty %}
+            <main>
+                <h1 style="font-weight: bold;">Nenhum serviço pendente encontrado.</h1>
+                <hr>
+                <p style="font-weight: bold; font-size: 25px;">Todos os serviços em nosso sistema estão concluidos!</p>
+            </main>
             <hr>
         {% endfor %}
 
