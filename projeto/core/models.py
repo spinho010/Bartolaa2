@@ -52,7 +52,8 @@ class AttConcluida(models.Model):
 
 
 class NotaFiscal(models.Model):
-    nf_fiscal = models.CharField(verbose_name='Codigo Fiscal', max_length=60, blank=True)
+    n_cliente = models.CharField(verbose_name='Nome do Cliente:', max_length=60, blank=True)
+    nf_fiscal = models.CharField(verbose_name='Codigo Fiscal:', max_length=60, blank=True)
     valor_pago = models.CharField(verbose_name='Valor Pago:', max_length=60, blank=True)
     data_venda = models.CharField(verbose_name='Data da Venda:', max_length=60, blank=True)
     hora_venda = models.CharField(verbose_name='Data da Venda:', max_length=60, blank=True)

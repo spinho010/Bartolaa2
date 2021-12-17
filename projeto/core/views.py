@@ -47,3 +47,14 @@ class CreatePende(CreateView):
     success_url = ('/')
 
 
+class CreateComprovante(CreateView):
+    model = NotaFiscal
+    fields = ['n_cliente', 'nf_fiscal', 'valor_pago', 'data_venda', 'metodo_pago']
+    template_name = 'attconcluidis.html'
+    success_url = ('https://devtools.com.br/recibo-online/')
+
+
+class ListComprovante(ListView):
+    model = NotaFiscal
+    template_name = 'comprovante_int.html'
+
