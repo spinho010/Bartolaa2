@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth import admin as auth_admin
-from .models import AttConcluida, AttPendete, MetodoPag, NotaFiscal, Conclu_Serviço
+from .models import AttConcluida, AttPendete, MetodoPag, NotaFiscal, Conclu_Serviço, AguardandoRetirada
 # Register your models here.
 
 
@@ -32,3 +32,9 @@ class AdminSConclu(admin.ModelAdmin):
         list_display = ('serviço_concluido', 'descric')
 
 admin.site.register(Conclu_Serviço, AdminSConclu)
+
+
+class AdminAguardando(admin.ModelAdmin):
+        list_display = ('name_cliente', 'm_aparelho', 'Falta_Pagar', 'f_pagar_valor')
+
+admin.site.register(AguardandoRetirada, AdminAguardando)

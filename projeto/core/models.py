@@ -59,3 +59,14 @@ class NotaFiscal(models.Model):
     hora_venda = models.CharField(verbose_name='Data da Venda:', max_length=60, blank=True)
     funcionario = models.CharField(verbose_name='Funcionário:', max_length=60, blank=True)
     metodo_pago = models.ForeignKey(MetodoPag, max_length=100, null=True, on_delete=models.PROTECT)
+
+
+class AguardandoRetirada(models.Model):
+    name_cliente = models.CharField(verbose_name='Nome ', max_length=60, null=False)
+    m_aparelho = models.CharField(verbose_name='Modelo Do Aparelho ', max_length=60, null=False)
+    Falta_Pagar = models.ForeignKey(Conclu_Serviço, max_length=100, null=False, on_delete=models.PROTECT)
+    f_pagar_valor = models.CharField(verbose_name='Valor a Pagar: ', max_length=60, blank=True, null=True)
+
+
+    def __str__(self):
+        return "{}".format(self.m_aparelho)

@@ -4,7 +4,7 @@ from django.views.generic.list import ListView
 from django.urls import reverse_lazy
 from django.http import HttpResponse
 from django.views.generic import TemplateView
-from .models import AttConcluida, AttPendete, NotaFiscal
+from .models import AttConcluida, AttPendete, NotaFiscal, AguardandoRetirada
 
 
 def index(request):
@@ -51,10 +51,21 @@ class CreateComprovante(CreateView):
     model = NotaFiscal
     fields = ['n_cliente', 'nf_fiscal', 'valor_pago', 'data_venda', 'metodo_pago']
     template_name = 'attconcluidis.html'
-    success_url = ('https://devtools.com.br/recibo-online/')
+    success_url = ('/')
 
 
 class ListComprovante(ListView):
     model = NotaFiscal
     template_name = 'comprovante_int.html'
 
+
+class ListAguardando(ListView):
+    model = AguardandoRetirada
+    template_name = 'aguardando-retirada.html'
+
+
+class CreateRetirada(CreateView):
+    model = AguardandoRetirada
+    fields = ['name_cliente', 'm_aparelho', 'Falta_Pagar', 'f_pagar_valor']
+    template_name = 'attconcluidis.html'
+    success_url = ('/list-retirada')
