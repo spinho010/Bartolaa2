@@ -24,7 +24,7 @@ class AtividadeDelete(UpdateView):
     model = AttPendete
     fields = ['data_entrega_aparelho', 'finalizado']
     template_name = 'attpendente-delete.html'
-    success_url = ('/')
+    success_url = ('/comprovante-interno')
 
 
 class TempAtividadeCon(ListView):
@@ -44,7 +44,7 @@ class CreatePende(CreateView):
     model = AttPendete
     fields = ['dono', 'modelo_aparelho', 'concerto_aparelho', 'valor_aparelho', 'data_entrega_aparelho', 'finalizado']
     template_name = 'attconcluidis.html'
-    success_url = ('/comprovante-interno')
+    success_url = ('/atividades/pendentes')
 
 
 class CreateComprovante(CreateView):
