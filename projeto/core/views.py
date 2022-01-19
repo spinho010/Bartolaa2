@@ -76,3 +76,9 @@ class UpdateRetirada(UpdateView):
     fields = ['name_cliente', 'm_aparelho', 'Falta_Pagar', 'f_pagar_valor']
     template_name = 'updateretirada.html'
     success_url = ('/list-retirada')
+
+
+class DeleteRetirada(DeleteView):
+    model = AguardandoRetirada
+    template_name = 'delete-retirada.html'
+    success_url = ('/list-retirada')

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% csrf_token %}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <title>Atualizar Registro</title>
+    <title>Deletar Registro</title>
             <!-- Bootstrap CSS -->
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
             <!-- Font-awesome -->
@@ -87,18 +87,18 @@
     <br><br><br>
     <main style="margin-top: 30px;">
         <h1 style="font-weight: bold;">
-            Editar Item
+            Deletar Registro
         </h1>
         <hr>
-        <strong>Deseja Editar os campos do Item?</strong>
-        <br>
+        <strong>Deseja deletar permanentemente este registro?</strong>
+        <br><br><br>
         <form action="" method="POST">
             
             {% csrf_token %} 
 
             {{ form|crispy }}
 
-            <button type="submit" class="btn btn-success">Finalizar</button>
+            <button type="submit" class="btn btn-success">Deletar</button>
 
         </form>
         <br>
