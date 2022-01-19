@@ -93,6 +93,9 @@
             <h3 style="font-weight: bold; text-align: left;">Modelo: {{ AguardandoRetirada.m_aparelho }}</h3> 
             <h3 style="font-weight: bold; text-align: left;">Valor a Pagar: {{ AguardandoRetirada.f_pagar_valor }}</h3> 
             <hr>
+            <a href="{% url 'core:update-retirada' AguardandoRetirada.id %}">
+                <button type="button" class="btn btn-success" >Editar</button>
+            </a>
         </main>
         <br>
         {% empty %}

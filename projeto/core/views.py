@@ -69,3 +69,10 @@ class CreateRetirada(CreateView):
     fields = ['name_cliente', 'm_aparelho', 'Falta_Pagar', 'f_pagar_valor']
     template_name = 'attconcluidis.html'
     success_url = ('/list-retirada')
+
+
+class UpdateRetirada(UpdateView):
+    model = AguardandoRetirada
+    fields = ['name_cliente', 'm_aparelho', 'Falta_Pagar', 'f_pagar_valor']
+    template_name = 'updateretirada.html'
+    success_url = ('/list-retirada')
