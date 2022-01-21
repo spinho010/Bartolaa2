@@ -44,14 +44,14 @@ class CreatePende(CreateView):
     model = AttPendete
     fields = ['dono', 'modelo_aparelho', 'concerto_aparelho', 'valor_aparelho', 'data_entrega_aparelho', 'finalizado']
     template_name = 'attconcluidis.html'
-    success_url = ('/atividades/pendentes')
+    success_url = ('/comprovante-interno')
 
 
 class CreateComprovante(CreateView):
     model = NotaFiscal
     fields = ['n_cliente', 'nf_fiscal', 'valor_pago', 'data_venda', 'metodo_pago']
     template_name = 'attconcluidis.html'
-    success_url = ('/')
+    success_url = ('/list-comprovante')
 
 
 class ListComprovante(ListView):
