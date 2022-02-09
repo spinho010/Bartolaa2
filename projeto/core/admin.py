@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth import admin as auth_admin
-from .models import AttConcluida, AttPendete, MetodoPag, NotaFiscal, Conclu_Serviço, AguardandoRetirada
+from .models import AttConcluida, AttPendete, MetodoPag, NotaFiscal, Conclu_Serviço, AguardandoRetirada, entrada_saida_att, mensal_diario, positivo_negativo, relatorio_mensal, relatorios
 # Register your models here.
 
 
@@ -38,3 +38,33 @@ class AdminAguardando(admin.ModelAdmin):
         list_display = ('name_cliente', 'm_aparelho', 'Falta_Pagar', 'f_pagar_valor')
 
 admin.site.register(AguardandoRetirada, AdminAguardando)
+
+
+class entrada_saida_attAdmin(admin.ModelAdmin):
+        list_display = ('entrada_ou_saida', 'descric')
+
+admin.site.register(entrada_saida_att, entrada_saida_attAdmin)
+
+
+class mensal_diario_Admin(admin.ModelAdmin):
+        list_display = ('mensal_diario', 'descric')
+
+admin.site.register(mensal_diario, mensal_diario_Admin)
+
+
+class positivo_negativoAdmin(admin.ModelAdmin):
+        list_display = ('positiv_negativo', 'descric')
+
+admin.site.register(positivo_negativo, positivo_negativoAdmin)
+
+
+class relatoriosAdmin(admin.ModelAdmin):
+        list_display = ('compra_ou_venda', 'valor_r', 'motivo', 'data_r')
+
+admin.site.register(relatorios, relatoriosAdmin)
+
+
+class relatorio_mensalAdmin(admin.ModelAdmin):
+        list_display = ('d_ou_m', 'p_ou_n', 'total', 'mes_relatorio', 'data_rm')
+
+admin.site.register(relatorio_mensal, relatorio_mensalAdmin)

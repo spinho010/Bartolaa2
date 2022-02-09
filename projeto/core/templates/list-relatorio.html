@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transações Diárias</title>
+    <title>Balanço Mensal</title>
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <!-- Font-awesome -->
@@ -42,7 +42,7 @@
                         </div>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="/comprovante-interno">Criar<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="/create-retirada">Criar<span class="sr-only">(current)</span></a>
                     </li>
                     <!-- <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Protocolo de Entrega</a>
@@ -63,7 +63,7 @@
         
 </head>
 <body>
-    <br><br>
+    <br><br><br><br>
     <style>
         body{
             background-color: rgb(60, 117, 202);
@@ -85,25 +85,26 @@
 
     </style>
     <br><br>
-        {% for relatorios in object_list %}
+        {% for relatorio_mensal in object_list %}
         <main>
-            <h3 style="font-weight: bold; text-align: left;">Compra ou Venda: {{ relatorios.compra_ou_venda }}</h3> <br>
-            <h3 style="font-weight: bold; text-align: left;">Valor: R$ {{ relatorios.valor_r }}</h3>
+            <h3 style="font-weight: bold; text-align: left;">Relatório: {{ relatorio_mensal.d_ou_m }}</h3> 
+            <h3 style="font-weight: bold; text-align: left;">Positivo ou Negativo: {{ relatorio_mensal.p_ou_n }}</h3>
             <hr>
-            <h3 style="font-weight: bold; text-align: left;">Motivo: {{ relatorios.motivo }}</h3> <br>
-            <h3 style="font-weight: bold; text-align: left;">Data: {{ Nrelatorios.data_r }}</h3> <br>
+            <h3 style="font-weight: bold; text-align: left;">Valor: R$ {{ relatorio_mensal.total }}</h3> 
+            <h3 style="font-weight: bold; text-align: left;">Mês do Relatório: {{ relatorio_mensal.mes_relatorio }}</h3> 
+            <h3 style="font-weight: bold; text-align: left;">Data: {{ relatorio_mensal.data_rm }}</h3> 
+            <hr>
         </main>
         <br>
         {% empty %}
             <main>
-                <h1 style="font-weight: bold;">Nenhum registro encontrado.</h1>
+                <h1 style="font-weight: bold;">Nenhum relatorio encontrado.</h1>
                 <hr>
-                <p style="font-weight: bold; font-size: 25px;">Começe a realizar vendas, para que seus comprovantes sejam visiveis aqui!</p>
+                <p style="font-weight: bold; font-size: 25px;">Quando você começar a realizar os cadastros, eles ficaram viziveis aqui!</p>
             </main>
             <hr>
         {% endfor %}
 
-<br><br><br>
 
 <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

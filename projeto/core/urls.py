@@ -1,7 +1,7 @@
 from django.urls import path
 
 from projeto.core import views as v
-from .views import TempAtividade, TempAtividadeCon, TempAtividadePen, CreateConclu, AtividadeDelete, CreatePende, CreateComprovante, ListComprovante, ListAguardando, CreateRetirada, UpdateRetirada, DeleteRetirada
+from .views import TempAtividade, TempAtividadeCon, TempAtividadePen, CreateConclu, AtividadeDelete, CreatePende, CreateComprovante, ListComprovante, ListAguardando, CreateRetirada, UpdateRetirada, DeleteRetirada, CreateRelatorio, ListRelatorio
 
 app_name = 'core'
 
@@ -20,4 +20,6 @@ urlpatterns = [
     path('create-retirada/', CreateRetirada.as_view(), name='create_retirada'),
     path('retirada-edit/<int:pk>/', UpdateRetirada.as_view(), name='update-retirada'),
     path('retirada-delete/<int:pk>/', DeleteRetirada.as_view(), name='delete-retirada'),
+    path('balanco-mensal/', CreateRelatorio.as_view(), name='create-relatorio'),
+    path('list-balanco/', ListRelatorio.as_view(), name='list-relatorio'),
 ]
