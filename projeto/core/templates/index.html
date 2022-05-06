@@ -5,22 +5,42 @@
 <div class="jumbotron">
   <div class="container">
     <h1>Bem-vindo {{ user }}!</h1>
-    <p>Bartola Celular</p>
+    <p>Bartola Celular <strong>Loja 2!</strong></p>
     <p>
       Programa de Controle e Gerenciamento de Vendas e Estoque <br>
       E Controle de atividades! <br> <hr>
-      <a href="{% url 'estoque:estoque_saida_list' %}">
-        <button type="button" class="btn btn-success"><strong>Vender -</strong></button>
-      </a>
-      <a href="{% url 'estoque:estoque_entrada_list' %}"> 
-        <button type="button" class="btn btn-primary"><strong>Reabastecer +</strong></button>
-      </a>
-      <a href="{% url 'produto:produto_list' %}">
-        <button type="button" class="btn btn-danger"><strong>Lista de Produtos</strong></button>
-      </a>
-      <a href="/admin">
-        <button type="button" class="btn btn-success"><strong>Administração</strong></button>
-      </a>
+      {% if user.groups.all.0.name == 'FUNCIONARIO' %}
+
+        <a href="{% url 'estoque:estoque_saida_list' %}">
+          <button type="button" class="btn btn-success"><strong>Vender -</strong></button>
+        </a>
+
+        <a href="{% url 'produto:produto_list' %}">
+          <button type="button" class="btn btn-danger"><strong>Lista de Produtos</strong></button>
+        </a>
+
+      {% else %}
+          <h1></h1>
+      {% endif %}
+      
+      {% if user.groups.all.0.name == 'GERENCIA' %}
+
+        <a href="{% url 'estoque:estoque_saida_list' %}">
+          <button type="button" class="btn btn-success"><strong>Vender -</strong></button>
+        </a>
+        <a href="{% url 'estoque:estoque_entrada_list' %}"> 
+          <button type="button" class="btn btn-primary"><strong>Reabastecer +</strong></button>
+        </a>
+        <a href="{% url 'produto:produto_list' %}">
+          <button type="button" class="btn btn-danger"><strong>Lista de Produtos</strong></button>
+        </a>
+        <a href="/admin">
+          <button type="button" class="btn btn-success"><strong>Administração</strong></button>
+        </a>
+        
+      {% else %}
+          <h1></h1>
+      {% endif %}
     </p>
   </div>
 </div>
